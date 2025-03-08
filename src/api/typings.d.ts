@@ -5,6 +5,18 @@ declare namespace API {
     message?: string
   }
 
+  type BaseResponseListChatmessage_ = {
+    code?: number
+    data?: Chatmessage[]
+    message?: string
+  }
+
+  type BaseResponseListForbiddata_ = {
+    code?: number
+    data?: Forbiddata[]
+    message?: string
+  }
+
   type BaseResponseLoginUserVO_ = {
     code?: number
     data?: LoginUserVO
@@ -41,10 +53,14 @@ declare namespace API {
     message?: string
   }
 
-  type BaseResponseUserVO_ = {
-    code?: number
-    data?: UserVO
-    message?: string
+  type Chatmessage = {
+    createTime?: string
+    fromMessage?: string
+    fromUserId?: number
+    id?: number
+    isDelete?: number
+    toMessage?: string
+    updateTime?: string
   }
 
   type checkUsingGETParams = {
@@ -62,12 +78,33 @@ declare namespace API {
     id?: number
   }
 
-  type getUserByIdUsingGETParams = {
-    /** id */
+  type Forbiddata = {
+    createTime?: string
+    forbidWord?: string
+    id?: number
+    isDelete?: number
+    updateTime?: string
+  }
+
+  type ForbidWordAddRequest = {
+    forbidWord?: string
+  }
+
+  type ForbidWordRemoveRequest = {
     id?: number
   }
 
-  type getUserVOByIdUsingGETParams = {
+  type ForbidWordSelectRequest = {
+    forbidWord?: string
+    id?: number
+  }
+
+  type ForbidWordUpdateRequest = {
+    forbidWord?: string
+    id?: number
+  }
+
+  type getUserByIdUsingGETParams = {
     /** id */
     id?: number
   }
@@ -113,6 +150,13 @@ declare namespace API {
     total?: number
   }
 
+  type upgradeRoleUsingGETParams = {
+    /** role */
+    role: string
+    /** userId */
+    userId: string
+  }
+
   type uploadFileUsingPOSTParams = {
     biz?: string
   }
@@ -136,6 +180,13 @@ declare namespace API {
     userAccount?: string
     userAvatar?: string
     userName?: string
+    userRole?: string
+  }
+
+  type UserAdminAddRequest = {
+    userAccount?: string
+    userName?: string
+    userPassword?: string
     userRole?: string
   }
 
